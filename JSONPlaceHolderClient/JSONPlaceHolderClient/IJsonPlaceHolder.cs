@@ -12,6 +12,8 @@ namespace JSONPlaceHolderClient
 
         Task<Post[]> GetPostsAsync();
 
+        Task<Post[]> GetPostsAsync(IFilter filter);
+
         Task<Post> GetPostAsync(int id);
 
         Task<Post> CreatePostAsync(Post post);

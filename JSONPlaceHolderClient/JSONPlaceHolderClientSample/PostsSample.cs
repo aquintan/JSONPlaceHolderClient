@@ -24,6 +24,29 @@ namespace JSONPlaceHolderClientSample
             Console.WriteLine("GetAllPosts finish");
         }
 
+        public void GetPostsWithFilter()
+        {
+            Console.WriteLine("GetPostsWithFilter start");
+
+            //JsonPlaceHolder could be injected in order to avoid this manual instantiation
+            IJsonPlaceHolder client = new JsonPlaceHolder();
+
+            IFilterBuilder filterBuilder = new FilterBuilder<Post>();
+            filterBuilder.AddParameter("userId", "5");
+            filterBuilder.AddParameter("id", "41");
+
+            Post[] posts = client.GetPostsAsync(filterBuilder.Build()).Result;
+
+            Console.WriteLine($"{posts.Length} posts found");
+
+            foreach (var item in posts)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("GetPostsWithFilter finish");
+        }
+
         public void GetPost()
         {
             Console.WriteLine("GetPost start");

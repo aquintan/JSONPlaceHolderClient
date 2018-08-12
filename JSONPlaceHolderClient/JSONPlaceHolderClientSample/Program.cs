@@ -13,11 +13,12 @@ namespace JSONPlaceHolderClientSample
             {
                 case "posts":
                     PostsSample sample = new PostsSample();
-                    sample.GetAllPosts();
-                    sample.GetPost();
-                    sample.CreatePost();
-                    sample.UpdatePost();
-                    sample.DeletePost();
+                    //sample.GetAllPosts();
+                    //sample.GetPost();
+                    //sample.CreatePost();
+                    //sample.UpdatePost();
+                    //sample.DeletePost();
+                    sample.GetPostsWithFilter();
                     break;
                 case "users":
                     UsersSample usersSample = new UsersSample();

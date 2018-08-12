@@ -29,6 +29,14 @@ namespace JSONPlaceHolderClient
             return await GetDataAsync<Post[]>("posts");
         }
 
+        public async Task<Post[]> GetPostsAsync(IFilter filter)
+        {
+            string query = filter.QueryString;
+            string url = (String.IsNullOrEmpty(query)) ? "posts" : $"posts{query}";
+
+            return await GetDataAsync<Post[]>(url);
+        }
+
         public async Task<Post> CreatePostAsync(Post post)
         {
             return await PostDataAsync<Post>("posts", post);

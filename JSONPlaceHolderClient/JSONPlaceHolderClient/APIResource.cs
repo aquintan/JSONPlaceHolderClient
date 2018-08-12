@@ -62,7 +62,7 @@ namespace JSONPlaceHolderClient
         #region Protected Methods
 
         protected async Task<T> GetDataAsync<T>(string uri)
-        {
+        {            
             return await ParseJson<T>(await Client.GetAsync(uri));
         }
 

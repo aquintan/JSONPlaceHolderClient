@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filter.cs" />
+    <Compile Include="FilterBuilder.cs" />
+    <Compile Include="IFilter.cs" />
+    <Compile Include="IFilterBuilder.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="APIResource.cs" />
@@ -53,6 +57,7 @@
     <Compile Include="JsonPlaceHolder.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Geolocation.cs" />
+    <Compile Include="IFilterable.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="IJsonPlaceHolder.cs" />
