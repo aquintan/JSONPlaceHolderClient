@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 
 namespace JSONPlaceHolderClient
 {
+    /// <summary>
+    /// Defines the methods that wraps the features in "https://jsonplaceholder.typicode.com/".
+    /// </summary>
     public interface IJsonPlaceHolder
     {
         #region Posts Methods
@@ -35,7 +38,7 @@ namespace JSONPlaceHolderClient
 
         Task<Comment> DeleteCommentAsync(int id);
 
-        #endregion Comment Methods
+        #endregion Comments Methods
 
         #region Albums Methods
 
@@ -50,5 +53,47 @@ namespace JSONPlaceHolderClient
         Task<Album> DeleteAlbumAsync(int id);
 
         #endregion Albums Methods
+
+        #region Photos Methods
+
+        Task<Photo[]> GetPhotosAsync();
+
+        Task<Photo> GetPhotoAsync(int id);
+
+        Task<Photo> CreatePhotoAsync(Photo photo);
+
+        Task<Photo> UpdatePhotoAsync(Photo photo);
+
+        Task<Photo> DeletePhotoAsync(int id);
+
+        #endregion Photos Methods
+
+        #region Todos Methods
+
+        Task<Todo[]> GetTodosAsync();
+
+        Task<Todo> GetTodoAsync(int id);
+
+        Task<Todo> CreateTodoAsync(Todo todo);
+
+        Task<Todo> UpdateTodoAsync(Todo todo);
+
+        Task<Todo> DeleteTodoAsync(int id);
+
+        #endregion Photos Methods
+
+        #region Users Methods
+
+        Task<User[]> GetUserAsync();
+
+        Task<User> GetUserAsync(int id);
+
+        Task<User> CreateUserAsync(User comment);
+
+        Task<User> UpdateUserAsync(User comment);
+
+        Task<User> DeleteUserAsync(int id);
+
+        #endregion Users Methods
     }
 }

@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace JSONPlaceHolderClient
 {
+    /// <summary>
+    /// <para>Abstract class that defines the base methods for JSON based endpoints calls. Internally this method use an unique <code>HttpClient</code> class for all endpoint calls.</para>
+    /// <para>This unique usage of <code>HttpClient</code> is based on this article: "https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/" that suggest this class should not be used
+    /// inside <code>using</code> statements and it is safe to use in concurrent environments</para>
+    /// </summary>
     public abstract class APIResource
     {
         #region Static
@@ -45,7 +50,8 @@ namespace JSONPlaceHolderClient
         {
             if (response.IsSuccessStatusCode)
             {
-                return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync(), Settings);
+                string content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<T>(content, Settings);
             }
 
             throw new APIResourceException(response);

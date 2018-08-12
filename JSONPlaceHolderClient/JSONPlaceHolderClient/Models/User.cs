@@ -28,5 +28,10 @@ namespace JSONPlaceHolderClient.Models
 
         [JsonProperty(PropertyName = "company")]
         public Company Company { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

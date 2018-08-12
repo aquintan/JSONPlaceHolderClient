@@ -6,9 +6,9 @@ namespace JSONPlaceHolderClient.Models
     public class Geolocation
     {
         [JsonProperty(PropertyName = "lat")]
-        public double Street { get; set; }
+        public double Latitude { get; set; }
 
         [JsonProperty(PropertyName = "lng")]
-        public double Suite { get; set; }
+        public double Longitude { get; set; }
     }
 }

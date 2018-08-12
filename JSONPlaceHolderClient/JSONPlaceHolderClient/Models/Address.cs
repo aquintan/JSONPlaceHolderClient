@@ -6,7 +6,7 @@ namespace JSONPlaceHolderClient.Models
     public class Address
     {
         [JsonProperty(PropertyName = "street")]
-        public int Street { get; set; }
+        public string Street { get; set; }
 
         [JsonProperty(PropertyName = "suite")]
         public string Suite { get; set; }

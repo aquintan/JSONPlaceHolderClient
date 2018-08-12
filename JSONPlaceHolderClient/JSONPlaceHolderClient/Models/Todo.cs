@@ -3,7 +3,7 @@
 namespace JSONPlaceHolderClient.Models
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Toto
+    public class Todo
     {
         [JsonProperty(PropertyName = "userId")]
         public int AlbumId { get; set; }
@@ -16,5 +16,10 @@ namespace JSONPlaceHolderClient.Models
 
         [JsonProperty(PropertyName = "completed")]
         public bool Url { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

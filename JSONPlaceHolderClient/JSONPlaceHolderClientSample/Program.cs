@@ -1,30 +1,36 @@
-﻿using JSONPlaceHolderClient;
-using JSONPlaceHolderClient.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace JSONPlaceHolderClientSample
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            //JsonPlaceHolder could be injected in order to avoid this manual instantiation
-            IJsonPlaceHolder client = new JsonPlaceHolder();
+            Console.Write("SAMPLE PROGRAM START");
+            string command = (args.Length == 0) ? String.Empty : args[0];
 
-            Post[] posts = client.GetPostsAsync().Result;
-
-            Console.WriteLine($"{posts.Length} posts found");
-
-            foreach (var item in posts)
+            switch (command)
             {
-                Console.WriteLine(item);
+                case "posts":
+                    PostsSample sample = new PostsSample();
+                    sample.GetAllPosts();
+                    sample.GetPost();
+                    sample.CreatePost();
+                    sample.UpdatePost();
+                    sample.DeletePost();
+                    break;
+                case "users":
+                    UsersSample usersSample = new UsersSample();
+                    usersSample.GetAllUsers();
+                    usersSample.GetUser();
+                    usersSample.CreateUser();
+                    break;
+                default:
+                    Console.WriteLine("Unsupported argument");
+                    break;
             }
 
-            Console.WriteLine("Sample Finished");
+            Console.Write("SAMPLE PROGRAM ENDED");
             Console.ReadKey();
         }
     }

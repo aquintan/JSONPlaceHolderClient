@@ -19,5 +19,10 @@ namespace JSONPlaceHolderClient.Models
 
         [JsonProperty(PropertyName = "body")]
         public string Body { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

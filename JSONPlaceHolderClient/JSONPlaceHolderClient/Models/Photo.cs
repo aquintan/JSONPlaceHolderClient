@@ -19,5 +19,10 @@ namespace JSONPlaceHolderClient.Models
 
         [JsonProperty(PropertyName = "thumbnailUrl")]
         public string ThumbnailUrl { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }
