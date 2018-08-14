@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Specialized;
 
 namespace JSONPlaceHolderClient
@@ -15,6 +16,7 @@ namespace JSONPlaceHolderClient
 
         public IFilterBuilder AddParameter(string parameterName, string parameterValue)
         {
+            var name = typeof(T).GetCustomAttributesData();
             IFilterable f = (T) Activator.CreateInstance(typeof(T));
 
             if (f.FilteredFields.Contains(parameterName))
